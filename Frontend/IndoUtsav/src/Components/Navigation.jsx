@@ -1,4 +1,4 @@
-import React from "react";
+import { React , useState } from "react";
 import "./NavigationStyle.css";
 import logo from "../Images/logo.jpeg";
 import { styled } from "@mui/material/styles";
@@ -7,8 +7,15 @@ import { Button } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
+import { Login } from "../Pages/Login"
 
 export function Navigation() {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+
+  const openModal = () => setModalIsOpen(true);
+  const closeModal = () => setModalIsOpen(false);
+
   const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     width: 62,
     height: 34,
@@ -97,11 +104,11 @@ export function Navigation() {
         <Button
           className="logInsignUp"
           variant="outlined"
-          component={Link}
-          to="/Login"
+          onClick={openModal}
         >
           Log In
         </Button>
+        <Login isOpen={modalIsOpen} onRequestClose={closeModal} />
         <Button className="themeButton">
           {/* <Button className="themeButton" onClick={toggleTheme}> */}
           <MaterialUISwitch />
