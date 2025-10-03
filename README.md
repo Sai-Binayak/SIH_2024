@@ -17,8 +17,6 @@ Key features include:
 
 This project is built with a React frontend (using Vite and Tailwind CSS) and a Node.js/Express backend, organized for clarity and scalability.
 
-This project is built with a React frontend (using Vite and Tailwind CSS) and a Node.js/Express backend, organized for clarity and scalability.
-
 ---
 Celebrate India, celebrate diversity! 🇮🇳
 
