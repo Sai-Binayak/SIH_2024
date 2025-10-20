@@ -1,6 +1,6 @@
 #layer-switcher {
   position: absolute;
-  bottom: 20px;
+  bottom: -10px;
   left: 474px;
   display: flex;
   flex-direction: row;
@@ -24,4 +24,18 @@
 
 #layer-switcher button.basemap-button.active {
   background-color: #0056b3;
+}
+
+/* Make the map container fill the entire viewport */
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.map-container {
+  width: 100vw; /* full viewport width */
+  height: 92vh; /* full viewport height (1920x1080 on that monitor) */
+  position: relative; /* allow absolutely positioned children */
 }

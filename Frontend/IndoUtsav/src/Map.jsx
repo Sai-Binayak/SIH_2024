@@ -1,8 +1,7 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import maplibregl from "maplibre-gl";
 import 'maplibre-gl/dist/maplibre-gl.css'; // Correct import for CSS
 import './mapstyle.css'; // Custom styles
-import { coordinates } from "@maptiler/sdk";
 
 const MAPTILER_API_KEY = "AXZusuZamaFGsiRflWNp"; // Your MapTiler API key
 const WEATHER_API_KEY = "715c0cf517b04c0087c105026242308"; // Your Weather API key
@@ -440,7 +439,7 @@ const MapComponent = () => {
 
   return (
     <div>
-      <div ref={mapContainerRef} style={{ width: '100%', height: '500px' }} />
+      <div ref={mapContainerRef} className="map-container" />
       {weatherData && (
         <div style={{ position: 'absolute', top: '10px', right: '10px', padding: '10px', backgroundColor: 'rgba(255, 255, 255, 0.8)', borderRadius: '5px' }}>
           <h4>Current Weather</h4>

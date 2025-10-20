@@ -1,4 +1,5 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
+import PropTypes from "prop-types";
 import {
   motion,
   useMotionTemplate,
@@ -14,10 +15,16 @@ export const Example = () => {
   );
 };
 
+TiltCard.propTypes = {
+  imgsrc: PropTypes.string.isRequired,
+  festivename: PropTypes.string.isRequired,
+  smallBg: PropTypes.bool,
+};
+
 const ROTATION_RANGE = 8.5;
 const HALF_ROTATION_RANGE = 8.5 / 2;
 
-export const TiltCard = ({imgsrc , festivename}) => {
+export const TiltCard = ({imgsrc , festivename, smallBg = false}) => {
   const ref = useRef(null);
 
   const x = useMotionValue(0);
@@ -59,23 +66,26 @@ export const TiltCard = ({imgsrc , festivename}) => {
       style={{
         transformStyle: "preserve-3d",
         transform,
+        height: smallBg ? 140 : 384, // h-36 or h-96
+        width: smallBg ? 140 : 288,  // w-36 or w-72
       }}
-      className="relative h-96 w-72 rounded-xl bg-gradient-to-br from-slate-700 to-slate-900"
+      className={`relative rounded-xl ${smallBg ? 'bg-slate-200' : 'bg-gradient-to-br from-slate-700 to-slate-900'} shadow-md`}
     >
       <div
         style={{
-          transform: "translateZ(75px)",
+          transform: "translateZ(40px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-4 grid place-content-center rounded-xl bg-black shadow-lg"
+        className="absolute inset-2 grid place-content-center rounded-xl bg-white/80 shadow"
       >
         <p
           style={{
-            transform: "translateZ(20px)",
+            transform: "translateZ(10px)",
           }}
-          className="text-center text-2xl font-bold"
+          className="text-center text-base font-bold"
         >
-          <img src={imgsrc} alt={festivename} className="rounded-lg"/>
+          <img src={imgsrc} alt={festivename} className="rounded-lg w-20 h-20 object-cover mx-auto mb-1"/>
+          <span className="block text-slate-800 mt-1">{festivename}</span>
         </p>
       </div>
     </motion.div>
