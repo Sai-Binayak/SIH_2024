@@ -1,98 +1,413 @@
 
+/* ========================================
+   IndoUtsav — Contact Us Page
+   Full-width, full-height layout
+======================================== */
 
-* {
+.iu-contact-page {
+  position: relative;
+  width: 100%;
+  min-height: calc(100vh - 72px);
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
+  overflow: hidden;
+
+  color: #f5f5f5;
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(245, 210, 27, 0.08),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 90% 80%,
+      rgba(22, 137, 237, 0.07),
+      transparent 35%
+    ),
+    #131214;
+}
+
+.iu-contact-page *,
+.iu-contact-page *::before,
+.iu-contact-page *::after {
+  box-sizing: border-box;
+}
+
+/* Full-page hero layout */
+
+.iu-contact-page .iu-contact-hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  gap: 0;
+
+  width: 100%;
+  max-width: none;
+  min-height: calc(100vh - 72px);
   margin: 0;
   padding: 0;
 }
 
-.contact{
-  width: 100vw;
+/* ========================================
+   Left Section — Introduction
+======================================== */
+
+.iu-contact-page .iu-contact-intro {
   display: flex;
-}
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 
-.left{
-  width: 50%;
-}
-
-.Aboutus {
-  height: 100%;
   width: 100%;
-  padding: 20px;
-  background-color: #131214;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(204, 198, 198, 0.918) inset;
-  color: aliceblue;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(32px, 6vw, 100px);
+
+  background: transparent;
 }
 
-.right{
-  width: 50%;
+.iu-contact-page .iu-contact-intro h1 {
+  max-width: 720px;
+  margin: 0 0 24px;
+
+  color: #ffffff;
+  font-size: clamp(2.5rem, 5vw, 5rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -1.5px;
 }
 
-form {
+.iu-contact-page .iu-contact-intro h1 span {
+  color: #f5d21b;
+}
+
+.iu-contact-page .iu-contact-intro p {
+  max-width: 600px;
+  margin: 0 0 20px;
+
+  color: #c7c5ca;
+  font-size: clamp(1rem, 1.3vw, 1.15rem);
+  line-height: 1.8;
+}
+
+.iu-contact-page .iu-contact-intro h2 {
+  margin: 0 0 14px;
+  color: #f5d21b;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* Listening / information callout */
+
+.iu-contact-page .iu-contact-intro .iu-contact-callout {
   width: 100%;
-  padding: 20px;
-  background-color: #131214;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  color: aliceblue;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 560px;
+  margin-top: 28px;
+  padding: 22px 24px;
+
+  border-left: 3px solid #f5d21b;
+  border-radius: 0 12px 12px 0;
+  background: rgba(255, 255, 255, 0.04);
 }
 
-form div {
-  margin-bottom: 20px;
+.iu-contact-page .iu-contact-intro .iu-contact-callout p {
+  margin: 0;
+  font-size: 0.98rem;
 }
 
-label {
+/* ========================================
+   Right Section — Contact Form
+======================================== */
+
+.iu-contact-page .iu-contact-form-column {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 100%;
+  max-width: none;
+  min-width: 0;
+  margin: 0;
+  padding: clamp(32px, 6vw, 100px);
+
+  border: 0;
+  border-left: 1px solid rgba(245, 210, 27, 0.22);
+  border-radius: 0;
+
+  background: rgba(25, 25, 27, 0.72);
+  box-shadow: none;
+}
+
+.iu-contact-page .iu-contact-form-column h2 {
+  margin: 0 0 12px;
+  color: #ffffff;
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 750;
+}
+
+.iu-contact-page .iu-contact-form-column > p {
+  margin: 0 0 32px;
+  color: #aaa7af;
+  line-height: 1.7;
+}
+
+/* Form layout */
+
+.iu-contact-page .iu-contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  width: 100%;
+  max-width: none;
+  margin: 0;
+}
+
+.iu-contact-page .iu-contact-form .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+}
+
+.iu-contact-page .iu-contact-form label {
+  color: #e9e7eb;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.iu-contact-page .iu-contact-form input,
+.iu-contact-page .iu-contact-form textarea {
   display: block;
-  margin-bottom: 10px;
-  font-size: 18px;
-}
-
-input, textarea {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 1px solid #818181;
-  border-radius: 5px;
-  color: black;
-  font-size: 18px;
+  padding: 15px 16px;
+
+  border: 1px solid #39363d;
+  border-radius: 9px;
+  outline: none;
+
+  background: #1b191e;
+  color: #ffffff;
+  font: inherit;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
-input[type="email"] {
-  padding-right: 30px;
+.iu-contact-page .iu-contact-form input {
+  min-height: 52px;
 }
 
-textarea {
-  height: 100px;
+.iu-contact-page .iu-contact-form textarea {
+  min-height: 160px;
   resize: vertical;
 }
 
-button[type="submit"] {
-  background-color: #4CAF50;
-  color: #fff;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
+.iu-contact-page .iu-contact-form input::placeholder,
+.iu-contact-page .iu-contact-form textarea::placeholder {
+  color: #77737d;
+}
+
+.iu-contact-page .iu-contact-form input:focus,
+.iu-contact-page .iu-contact-form textarea:focus {
+  border-color: #f5d21b;
+  background: #201e23;
+  box-shadow: 0 0 0 3px rgba(245, 210, 27, 0.12);
+}
+
+/* Submit button */
+
+.iu-contact-page .iu-contact-form button[type="submit"] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  width: 100%;
+  min-height: 54px;
+  margin-top: 6px;
+  padding: 15px 24px;
+
+  border: 1px solid #f5d21b;
+  border-radius: 9px;
+
+  background: #f5d21b;
+  color: #131214;
+
+  font: inherit;
+  font-weight: 750;
   cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #3e8e41;
+.iu-contact-page .iu-contact-form button[type="submit"]:hover {
+  background: #ffe65c;
+  box-shadow: 0 8px 24px rgba(245, 210, 27, 0.16);
+  transform: translateY(-2px);
 }
 
-@media only screen and (max-width: 768px) {
-  form {
-    margin: 20px auto;
+.iu-contact-page .iu-contact-form button[type="submit"]:active {
+  transform: translateY(0);
+}
+
+.iu-contact-page .iu-contact-form button[type="submit"]:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Status messages */
+
+.iu-contact-page .iu-contact-success,
+.iu-contact-page .iu-contact-error {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 8px;
+  line-height: 1.6;
+}
+
+.iu-contact-page .iu-contact-success {
+  border: 1px solid rgba(72, 187, 120, 0.35);
+  background: rgba(72, 187, 120, 0.08);
+  color: #8ee0ad;
+}
+
+.iu-contact-page .iu-contact-error {
+  border: 1px solid rgba(248, 113, 113, 0.35);
+  background: rgba(248, 113, 113, 0.08);
+  color: #ffaaaa;
+}
+
+/* ========================================
+   Decorative Ornaments
+======================================== */
+
+.iu-contact-page .iu-contact-ornament {
+  position: absolute;
+  z-index: 0;
+  width: 220px;
+  height: 220px;
+  border: 1px solid rgba(245, 210, 27, 0.12);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.iu-contact-page .iu-contact-ornament-one {
+  top: -100px;
+  left: -100px;
+}
+
+.iu-contact-page .iu-contact-ornament-two {
+  right: -120px;
+  bottom: -120px;
+  width: 300px;
+  height: 300px;
+}
+
+/* Keep the actual content above decorations */
+
+.iu-contact-page .iu-contact-hero {
+  position: relative;
+  z-index: 1;
+}
+
+/* ========================================
+   Responsive — Tablets
+======================================== */
+
+@media (max-width: 1024px) {
+  .iu-contact-page .iu-contact-hero {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .iu-contact-page .iu-contact-intro,
+  .iu-contact-page .iu-contact-form-column {
+    padding: 42px;
+  }
+
+  .iu-contact-page .iu-contact-intro h1 {
+    font-size: clamp(2.3rem, 4.5vw, 3.5rem);
   }
 }
 
-@media only screen and (max-width: 480px) {
-  form {
-    padding: 10px;
+/* ========================================
+   Responsive — Mobile
+======================================== */
+
+@media (max-width: 760px) {
+  .iu-contact-page {
+    min-height: calc(100vh - 64px);
+    overflow: visible;
   }
-  input, textarea {
-    padding: 5px;
+
+  .iu-contact-page .iu-contact-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .iu-contact-page .iu-contact-intro {
+    min-height: 55vh;
+    padding: 56px 24px 44px;
+  }
+
+  .iu-contact-page .iu-contact-intro h1 {
+    font-size: clamp(2.4rem, 10vw, 3.6rem);
+    letter-spacing: -0.8px;
+  }
+
+  .iu-contact-page .iu-contact-intro p {
+    font-size: 1rem;
+  }
+
+  .iu-contact-page .iu-contact-form-column {
+    min-height: 55vh;
+    padding: 44px 24px 56px;
+
+    border-left: 0;
+    border-top: 1px solid rgba(245, 210, 27, 0.22);
+  }
+
+  .iu-contact-page .iu-contact-form-column h2 {
+    font-size: 2rem;
+  }
+
+  .iu-contact-page .iu-contact-ornament {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* ========================================
+   Small Mobile
+======================================== */
+
+@media (max-width: 380px) {
+  .iu-contact-page .iu-contact-intro,
+  .iu-contact-page .iu-contact-form-column {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .iu-contact-page .iu-contact-intro h1 {
+    font-size: 2.2rem;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .iu-contact-page .iu-contact-form input,
+  .iu-contact-page .iu-contact-form textarea,
+  .iu-contact-page .iu-contact-form button[type="submit"] {
+    transition: none;
   }
 }

@@ -1,106 +1,468 @@
-.login-container {
-  width: 400px;
-  margin: 50px auto;
-  padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
 
-h2 {
+/* =====================================
+   IndoUtsav Authentication Modal
+===================================== */
+
+.iu-auth-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
   display: flex;
+  align-items: center;
   justify-content: center;
-  padding-bottom: 1rem;
-  font-size: 32px;
-  font-family: "Baskervville SC", serif;
-  font-weight: 400;
+
+  padding: 24px;
+  overflow-y: auto;
+
+  background: rgba(7, 7, 9, 0.84);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
 }
 
-label {
+.iu-auth-body-open {
+  overflow: hidden;
+}
+
+.iu-auth-modal {
+  position: relative;
+  width: 100%;
+  max-width: 510px;
+  max-height: calc(100vh - 48px);
+  margin: auto;
+  overflow-y: auto;
+
+  outline: none;
+  border: 1px solid rgba(245, 210, 27, 0.25);
+  border-radius: 22px;
+
+  background: #171619;
+  color: #f7f5f0;
+
+  box-shadow:
+    0 24px 90px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(245, 210, 27, 0.04);
+}
+
+.iu-auth-container {
+  position: relative;
+  isolation: isolate;
+  padding: 36px 42px 28px;
+  overflow: hidden;
+}
+
+/* Decorative background */
+
+.iu-auth-decoration {
+  position: absolute;
+  z-index: -1;
+  top: -125px;
+  right: -105px;
+  width: 280px;
+  height: 280px;
+  pointer-events: none;
+}
+
+.iu-auth-orbit {
+  position: absolute;
+  inset: 0;
+  border: 1px solid rgba(245, 210, 27, 0.15);
+  border-radius: 50%;
+}
+
+.iu-auth-orbit-two {
+  inset: 28px;
+  border-color: rgba(245, 210, 27, 0.1);
+}
+
+.iu-auth-star {
+  position: absolute;
+  top: 110px;
+  left: 110px;
+  color: #f5d21b;
+  font-size: 28px;
+  opacity: 0.7;
+}
+
+/* Close button */
+
+.iu-auth-close {
+  position: absolute;
+  top: 18px;
+  right: 20px;
+  z-index: 2;
+
+  display: grid;
+  place-items: center;
+
+  width: 36px;
+  height: 36px;
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.04);
+  color: #c9c5cd;
+  font-size: 27px;
+  line-height: 1;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.iu-auth-close:hover {
+  border-color: #f5d21b;
+  background: rgba(245, 210, 27, 0.1);
+  color: #f5d21b;
+}
+
+/* Brand */
+
+.iu-auth-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  margin-bottom: 34px;
+
+  color: #ffffff;
+  font-size: 23px;
+  font-weight: 800;
+  letter-spacing: -0.7px;
+}
+
+.iu-auth-brand-mark,
+.iu-auth-gold {
+  color: #f5d21b;
+}
+
+.iu-auth-brand-mark {
+  font-size: 27px;
+}
+
+/* Heading */
+
+.iu-auth-heading {
+  margin-bottom: 26px;
+}
+
+.iu-auth-eyebrow {
+  margin: 0 0 12px;
+
+  color: #f5d21b;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2.2px;
+}
+
+.iu-auth-heading h2 {
   display: block;
-  margin-bottom: 10px;
-  font-family: "Baskervville SC", serif;
-  font-weight: 400;
-  font-style: normal;
+  margin: 0 0 14px;
+  padding: 0;
+
+  color: #ffffff;
+  font-family: inherit;
+  font-size: clamp(29px, 5vw, 37px);
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -1px;
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
-  .login-container {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .background-shape {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #3498db;
-    clip-path: polygon(0 0, 100% 0, 100% 50%, 0 100%);
-  }
-
-  .login-form-container {
-    position: relative;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-
-  label {
-    display: block;
-    margin-bottom: 10px;
-  }
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    height: 40px;
-    margin-bottom: 20px;
-    padding: 10px;
-    color: black;
-  }
-
-  button[type="submit"] {
-    width: 100%;
-    height: 40px;
-    background-color: #4CAF50;
-    color: #731616;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-
-  button[type="submit"]:hover {
-    background-color: #1c631e;
-  }
-
-  color: black;
-  width: 100%;
-  height: 40px;
-  margin-bottom: 20px;
-  padding: 10px;
+.iu-auth-heading h2 span {
+  color: #f5d21b;
 }
 
-button[type="submit"] {
-  width: 100%;
-  height: 40px;
-  background-color: #4CAF50;
-  color: #fff;
+.iu-auth-description {
+  max-width: 390px;
+  margin: 0;
+
+  color: #aaa6b0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+/* Login / Signup tabs */
+
+.iu-auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+
+  margin-bottom: 25px;
+  padding: 5px;
+
+  border: 1px solid #302d33;
+  border-radius: 11px;
+  background: #100f12;
+}
+
+.iu-auth-tabs button {
+  min-height: 43px;
   padding: 10px;
-  border: none;
-  border-radius: 5px;
+
+  border: 0;
+  border-radius: 7px;
+
+  background: transparent;
+  color: #a8a4ad;
+
+  font: inherit;
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.iu-auth-tabs button:hover {
+  color: #ffffff;
+}
+
+.iu-auth-tabs button.active {
+  background: #f5d21b;
+  color: #171619;
+  box-shadow: 0 3px 12px rgba(245, 210, 27, 0.12);
+}
+
+/* Form */
+
+.iu-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  width: 100%;
+  margin: 0;
+}
+
+.iu-auth-field {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  width: 100%;
+}
+
+.iu-auth-field label {
+  display: block;
+  margin: 0;
+
+  color: #e7e4eb;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.iu-auth-field input {
+  display: block;
+  width: 100%;
+  height: 49px;
+  margin: 0;
+  padding: 0 14px;
+
+  border: 1px solid #38343d;
+  border-radius: 9px;
+  outline: none;
+
+  background: #201e23;
+  color: #ffffff;
+
+  font-family: inherit;
+  font-size: 14px;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.iu-auth-field input::placeholder {
+  color: #77727e;
+}
+
+.iu-auth-field input:hover {
+  border-color: #5a535f;
+}
+
+.iu-auth-field input:focus {
+  border-color: #f5d21b;
+  background: #242127;
+  box-shadow: 0 0 0 3px rgba(245, 210, 27, 0.1);
+}
+
+/* Submit button */
+
+.iu-auth-submit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  width: 100%;
+  min-height: 51px;
+  margin-top: 5px;
+  padding: 13px 18px;
+
+  border: 1px solid #f5d21b;
+  border-radius: 9px;
+
+  background: #f5d21b;
+  color: #171619;
+
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.iu-auth-submit span {
+  font-size: 19px;
+  transition: transform 0.2s ease;
+}
+
+.iu-auth-submit:hover {
+  transform: translateY(-1px);
+  background: #ffe65c;
+  box-shadow: 0 7px 22px rgba(245, 210, 27, 0.14);
+}
+
+.iu-auth-submit:hover span {
+  transform: translateX(4px);
+}
+
+.iu-auth-submit:active {
+  transform: translateY(0);
+}
+
+.iu-auth-submit:focus-visible,
+.iu-auth-close:focus-visible,
+.iu-auth-tabs button:focus-visible,
+.iu-auth-switch button:focus-visible {
+  outline: 2px solid #f5d21b;
+  outline-offset: 3px;
+}
+
+/* Form feedback */
+
+.iu-auth-message {
+  margin: 0;
+  padding: 12px 14px;
+
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.iu-auth-message.error {
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  background: rgba(248, 113, 113, 0.08);
+  color: #ffaaaa;
+}
+
+.iu-auth-message.success {
+  border: 1px solid rgba(72, 187, 120, 0.3);
+  background: rgba(72, 187, 120, 0.08);
+  color: #9ae6b4;
+}
+
+/* Switch between modes */
+
+.iu-auth-switch {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+
+  margin: 23px 0 0;
+
+  color: #aaa6b0;
+  font-size: 13px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+.iu-auth-switch button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  color: #f5d21b;
+  font: inherit;
+  font-weight: 750;
+
   cursor: pointer;
 }
 
-button[type="submit"]:hover {
-  background-color: #3e8e41;
+.iu-auth-switch button:hover {
+  color: #ffe65c;
+  text-decoration: underline;
+}
+
+/* Footer */
+
+.iu-auth-footer {
+  margin: 27px 0 0;
+  padding-top: 19px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: #77727e;
+  font-size: 11px;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Responsive */
+
+@media (max-width: 520px) {
+  .iu-auth-overlay {
+    align-items: flex-start;
+    padding: 14px;
+  }
+
+  .iu-auth-modal {
+    max-height: calc(100dvh - 28px);
+    border-radius: 17px;
+  }
+
+  .iu-auth-container {
+    padding: 28px 22px 23px;
+  }
+
+  .iu-auth-brand {
+    margin-bottom: 29px;
+    font-size: 21px;
+  }
+
+  .iu-auth-heading h2 {
+    font-size: 30px;
+  }
+
+  .iu-auth-description {
+    font-size: 13px;
+  }
+
+  .iu-auth-heading {
+    margin-bottom: 22px;
+  }
+
+  .iu-auth-footer {
+    margin-top: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .iu-auth-close,
+  .iu-auth-tabs button,
+  .iu-auth-field input,
+  .iu-auth-submit,
+  .iu-auth-submit span {
+    transition: none;
+  }
 }
